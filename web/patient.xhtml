@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+      
+      
+	<h:form>
+<fieldset>
+<legend>Inscription</legend><br/>
+<table>
+<tr>
+<td><h:outputLabel for="date">date</h:outputLabel></td>
+<td><h:inputText id="date" required="true" value="#{patient.date}" size="20" maxlength="60" disabled="true"/></td>
+</tr>
+<tr>
+<td><h:outputLabel for="cin">CIN <span class="requis">*</span></h:outputLabel></td>
+<td><h:inputText id="cin" required="true" size="20" maxlength="60" 
+                 requiredMessage="La saisie du cin est obligatoire !"   
+                 validatorMessage="Le cin doit contenir uniquement 8 chiffres!! ">
+    <f:validateRegex pattern="[0-9]{8}" />
+ </h:inputText>
+    </td>
+<td><h:message for="cin" style="color:red"></h:message></td>
+</tr>
+<tr>
+<td><h:outputLabel for="nom">Nom <span class="requis">*</span></h:outputLabel>
+</td>
+<td><h:inputText id="nom" required="true" size="20" maxlength="60" requiredMessage="La saisie du nom est obligatoire !"  
+                 validatorMessage="Le nom doit comprendre un texte d'au moins 3 caracteres ">
+     <f:validateRegex pattern="[a-zA-Z]{3,255}" />
+</h:inputText>
+</td><td><h:message for="nom" style="color:red"></h:message></td></tr>
+<tr>
+<td><h:outputLabel for="prenom">Prenom <span class="requis">*</span></h:outputLabel></td>
+<td><h:inputText id="prenom" required="true" size="20" maxlength="60" 
+                 requiredMessage="La saisie du prénom est obligatoire !"   validatorMessage="Le prenom doit comprendre un texte d'au moins 3 caracteres ">
+     <f:validateRegex pattern="[a-zA-Z]{3,255}" />
+    </h:inputText></td>
+<td><h:message for="prenom" style="color:red"></h:message></td>
+</tr>
+<tr>
+<td><h:outputLabel for="naissance">date de naissance <span class="requis">*</span></h:outputLabel></td>
+<td><h:inputText id="naissance" required="true" size="20" maxlength="60" requiredMessage="La saisie du date est obligatoire !" /></td> <td><h:message for="naissance" style="color:red"></h:message></td></tr>
+<tr>
+<td><h:outputLabel for="lieu">lieu<span class="requis">*</span></h:outputLabel></td>
+<td><h:selectOneMenu id="lieu" value="">
+<f:selectItem itemValue="1" itemLabel="tunis" ></f:selectItem>
+<f:selectItem itemValue="2" itemLabel="Bej " ></f:selectItem>
+<f:selectItem itemValue="3" itemLabel="Ben arous"  ></f:selectItem>
+<f:selectItem itemValue="4" itemLabel="Bizert"></f:selectItem>
+</h:selectOneMenu>
+</td></tr>
+<tr>
+<td><h:outputLabel for="gsm">GSM<span class="requis">*</span></h:outputLabel></td>
+<td><h:inputText id="gsm" required="true" size="20"  maxlength="60" requiredMessage="La saisie du GMS est obligatoire !" 
+                 validatorMessage="Le GSM doit contenir uniquement 8 chiffres!! ">
+    <f:validateRegex pattern="[0-9]{8}" />
+    </h:inputText>
+                 </td>
+<td><h:message for="gsm" style="color:red"></h:message></td>
+</tr>
+</table>
+</fieldset>
+<fieldset>
+<table>
+<tr><td>
+<h:outputLabel for="active">Premier RDV<span class="requis">*</span></h:outputLabel>
+<h:selectOneRadio value="" id="boutton">
+<f:selectItem itemValue="yes" itemLabel="Oui"></f:selectItem>
+<f:selectItem itemValue="yes" itemLabel="Non"></f:selectItem>
+</h:selectOneRadio>
+</td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+<td>
+<h:outputLabel for="active">Genre<span class="requis">*</span></h:outputLabel>
+<h:selectOneRadio value="" id="radio">
+<f:selectItem itemValue="f" itemLabel="feminin"></f:selectItem>
+<f:selectItem itemValue="m" itemLabel="musculin"></f:selectItem>
+</h:selectOneRadio></td>
+</tr>
+</table>
+</fieldset>
+<h:commandButton value = "ajouter" onclick = "patient.xhtml" /> 
+<h:commandButton value="Reset" class="link" type="reset" style="margin: 20px"/>
+</h:form>
+    </h:body>
+</html>
+
